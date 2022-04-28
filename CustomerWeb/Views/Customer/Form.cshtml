@@ -3,7 +3,7 @@
 @{
     var action = ViewData["Action"];
 }
-
+    <p>@Html.ActionLink("Return to List", "Index")</p>
     <h3>@action Customer</h3>
     <form asp-controller="customer" asp-action="save" method="post">
         @Html.Hidden("action",action)
