@@ -1,0 +1,59 @@
+﻿@model CustomerData.Models.CustomerEntity;
+
+@{
+    var action = ViewData["Action"];
+}
+
+    <h3>@action Customer</h3>
+    <form asp-controller="customer" asp-action="save" method="post">
+        @Html.Hidden("action",action)
+        <table border="0" cellpadding="2" cellspacing="2">
+            @if (action != null && action.ToString().ToLower().Equals("edit"))
+            {
+                <input asp-for="Id" type="hidden" />
+            }
+            
+            <tr>
+                <td>Fist Name</td>
+                <td>
+                    <input asp-for="FirstName" placeholder="Enter First Name"/>
+                </td>
+                <td>
+                    <span asp-validation-for="FirstName"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>Last Name</td>
+                <td>
+                    <input asp-for="LastName" placeholder="Enter Last Name"/>
+                </td>
+                <td>
+                    <span asp-validation-for="LastName"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td>
+                    <input asp-for="Address" placeholder="Enter Address"/>
+                </td>
+                <td>
+                    <span asp-validation-for="Address"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>Phone</td>
+                <td>
+                    <input asp-for="Phone" placeholder="#########"/>
+                </td>
+                <td>
+                    <span asp-validation-for="Phone"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>
+                    <input type="submit" value="Save" />
+                </td>
+            </tr>
+        </table>
+    </form>
